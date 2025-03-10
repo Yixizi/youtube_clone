@@ -5,11 +5,9 @@ import { auth } from "@clerk/nextjs/server";
 import { db } from "@/db";
 import { users, videos } from "@/db/schema";
 import { and, eq } from "drizzle-orm";
-import { aw } from "node_modules/@upstash/redis/zmscore-Dc6Llqgr.mjs";
 
 const f = createUploadthing();
 
-// const auth = (req: Request) => ({ id: "fakeId" });
 
 export const ourFileRouter = {
   bannerUploader: f({

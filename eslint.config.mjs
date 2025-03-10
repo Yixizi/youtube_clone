@@ -15,12 +15,7 @@ const eslintConfig = [
     "plugin:@next/next/recommended",
     "plugin:@next/next/core-web-vitals"
   ),
-  // {
-  //   // 自定义规则覆盖
-  //   rules: {
-  //     // "@typescript-eslint/no-unused-vars": "off" // 彻底关闭该规则
-  //   }
-  // }
+
 ];
 
 export default eslintConfig;

@@ -1,6 +1,5 @@
 import { relations } from "drizzle-orm";
 import {
-  alias,
   foreignKey,
   integer,
   pgEnum,
