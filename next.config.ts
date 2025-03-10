@@ -13,13 +13,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // webpack: (config, { isServer }) => {
-  //   config.infrastructureLogging = {
-  //     level: "verbose", // 开启 Webpack 详细日志
-  //     debug: /.*/, // 匹配所有调试信息
-  //   };
-  //   return config;
-  // },
+  async rewrites() {
+    return [
+      {
+        source: "/(.*)",
+        destination: "/index.html",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
