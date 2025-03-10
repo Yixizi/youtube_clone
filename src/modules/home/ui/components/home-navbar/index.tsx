@@ -7,8 +7,10 @@ import AuthButton from "@/modules/auth/ui/components/auth-button";
 import { Button } from "@/components/ui/button";
 import { ClapperboardIcon } from "lucide-react";
 import { THUMBNAIL_FALLBACK } from "@/modules/videos/constants";
-import { useIsMobile } from "@/hooks/use-mobile";
+
 import StudioText from "./studio-text";
+import { useClerk } from "@clerk/nextjs";
+import { useAuth } from "@clerk/clerk-react";
 
 export interface HomeNavbarProps {}
 
@@ -26,7 +28,9 @@ const HomeNavbar: React.FC<HomeNavbarProps> = memo((props) => {
                 height={32}
                 width={32}
               />
-              <p className="text-xl font-semibold tracking-tight">NewTuBe</p>
+              <p className="text-xl font-semibold tracking-tight hidden md:block">
+                NewTuBe
+              </p>
             </div>
           </Link>
         </div>
@@ -36,13 +40,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = memo((props) => {
         </div>
 
         <div className=" flex-shrink-0 items-center flex gap-4">
-          <Button asChild variant={"secondary"}>
-            <Link prefetch href={"/studio"}>
-              <ClapperboardIcon></ClapperboardIcon>
-              <StudioText />
-            </Link>
-          </Button>
-
+          <StudioText />
           <AuthButton />
         </div>
       </div>

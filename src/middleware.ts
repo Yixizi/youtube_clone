@@ -5,6 +5,8 @@ const isProtectedRoute = createRouteMatcher([
   "/subscriptions",
   "/feed/subscribed",
   "/playlists(.*)",
+  // "/sign-in(.*)",
+  // "/sign-up(.*)",
 ]);
 
 export default clerkMiddleware(async (auth, req) => {

@@ -1,5 +1,10 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useAuth } from "@clerk/clerk-react";
+import { useClerk } from "@clerk/nextjs";
+import { ClapperboardIcon } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 export interface StudioTextProps {
@@ -9,8 +14,25 @@ export interface StudioTextProps {
 const StudioText: React.FC<StudioTextProps> = (props) => {
   const { children } = props;
   const isMobile = useIsMobile();
-
-  return isMobile ? null : <span>Studio</span>;
+  const clerk = useClerk();
+  const { isSignedIn } = useAuth();
+  return (
+    <Button
+      asChild
+      variant={"secondary"}
+      onClick={(e) => {
+        if (!isSignedIn) {
+          e.preventDefault();
+          clerk.openSignIn();
+        }
+      }}
+    >
+      <Link prefetch href={"/studio"}>
+        <ClapperboardIcon></ClapperboardIcon>
+        {isMobile ? null : <span>Studio</span>}
+      </Link>
+    </Button>
+  );
 };
 
 export default StudioText;

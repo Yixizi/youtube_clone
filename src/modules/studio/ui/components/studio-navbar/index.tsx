@@ -25,7 +25,9 @@ const StudioNavbar: React.FC<StudioNavbarProps> = memo((props) => {
                 height={32}
                 width={32}
               />
-              <p className="text-xl font-semibold tracking-tight">NewTuBe</p>
+              <p className="hidden md:block text-xl font-semibold tracking-tight">
+                NewTuBe
+              </p>
             </div>
           </Link>
         </div>
@@ -33,7 +35,7 @@ const StudioNavbar: React.FC<StudioNavbarProps> = memo((props) => {
         <div className="flex-1"></div>
 
         <div className=" flex-shrink-0 items-center flex gap-4">
-          <StudioUploadModal></StudioUploadModal>
+          <StudioUploadModal />
           <AuthButton />
         </div>
       </div>
