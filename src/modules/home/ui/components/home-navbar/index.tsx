@@ -1,5 +1,5 @@
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import Image from "next/Image";
+import Image from "next/image";
 import Link from "next/link";
 import React, { memo } from "react";
 import SearchInput from "./search-input";
