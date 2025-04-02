@@ -62,6 +62,7 @@ const CommentForm: React.FC<CommentFormProps> = (props) => {
       toast.error("Something went wrong");
 
       if (error.data?.code === "UNAUTHORIZED") {
+        toast.success('可随意注册，无需验证')
         clerk.openSignIn();
       }
     },

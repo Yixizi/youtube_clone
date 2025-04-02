@@ -30,6 +30,8 @@ const VideoReactions: React.FC<VideoReactionsProps> = (props) => {
     onError: (error) => {
       toast.error("Something went wrong");
       if (error.data?.code === "UNAUTHORIZED") {
+        toast.success("可随意注册，无需验证");
+
         clerk.openSignIn();
       }
     },
@@ -43,6 +45,8 @@ const VideoReactions: React.FC<VideoReactionsProps> = (props) => {
       console.log(error);
       toast.error("Something went wrong");
       if (error.data?.code === "UNAUTHORIZED") {
+        toast.success("可随意注册，无需验证");
+
         clerk.openSignIn();
       }
     },

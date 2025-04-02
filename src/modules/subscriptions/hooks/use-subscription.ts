@@ -26,6 +26,8 @@ export const useSubscription = (props: UseSubscriptionProps) => {
       toast.error("Something went wrong");
 
       if (error.data?.code === "UNAUTHORIZED") {
+        toast.success("可随意注册，无需验证");
+
         clerk.openSignIn();
       }
     },
@@ -45,6 +47,8 @@ export const useSubscription = (props: UseSubscriptionProps) => {
       toast.error("Something went wrong");
 
       if (error.data?.code === "UNAUTHORIZED") {
+        toast.success("可随意注册，无需验证");
+
         clerk.openSignIn();
       }
     },

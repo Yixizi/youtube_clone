@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sidebar";
 import { HistoryIcon, ListVideoIcon, ThumbsUpIcon } from "lucide-react";
 import { useAuth, useClerk } from "@clerk/nextjs";
+import { toast } from "sonner";
 
 import Link from "next/link";
 import React, { memo } from "react";
@@ -54,6 +55,8 @@ const PersonalSection: React.FC<PersonalSectionProps> = memo((props) => {
                 onClick={(e) => {
                   if (!isSignedIn && item.auth) {
                     e.preventDefault();
+                    toast.success("可随意注册，无需验证");
+
                     return clerk.openSignIn();
                   }
                 }}

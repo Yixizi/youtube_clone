@@ -6,6 +6,7 @@ import { useClerk } from "@clerk/nextjs";
 import { ClapperboardIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { toast } from "sonner";
 
 export interface StudioTextProps {
   children?: React.ReactNode;
@@ -23,6 +24,8 @@ const StudioText: React.FC<StudioTextProps> = (props) => {
       onClick={(e) => {
         if (!isSignedIn) {
           e.preventDefault();
+          toast.success("可随意注册，无需验证");
+
           clerk.openSignIn();
         }
       }}
